@@ -15,7 +15,7 @@ import { QQBotWS } from './websocket'
 const logger = createLogger('qq')
 
 Formatter.defaultOptions.explicitTrue = true
-Formatter.defaultOptions.explicitString = true
+Formatter.defaultOptions.quoteText = true
 
 logger.debug = noop
 

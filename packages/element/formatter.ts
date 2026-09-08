@@ -8,7 +8,7 @@ export interface FormatOptions extends InspectOptions {
   /** Maximum number of characters of attr string values, defaults to `maxStringLength`. */
   maxAttrStringLength?: number | null
   /** Whether text children are rendered as quoted strings instead of raw text. @default false */
-  explicitString?: boolean
+  quoteText?: boolean
   /** Whether `true` attribute values are rendered explicitly as `=true` instead of just the attribute name. @default false */
   explicitTrue?: boolean
   /** Optional syntax highlighter used for objects when colors are enabled. */
@@ -222,7 +222,7 @@ export class Formatter {
 
   /** Whether the node is rendered as plain text. */
   private isText(node: unknown): node is string {
-    return !this.opts.explicitString && typeof node === 'string'
+    return !this.opts.quoteText && typeof node === 'string'
   }
 
   /** Whether the node is rendered as whitespace-only text. */
@@ -250,7 +250,7 @@ export namespace Formatter {
   export const defaultOptions: Required<Overwrite<FormatOptions, Readonly<InspectOptions>>> =
     Object.assign(Object.create(inspect.defaultOptions), {
       maxAttrStringLength: null,
-      explicitString: false,
+      quoteText: false,
       explicitTrue: false,
       customHighlight: null,
     })
