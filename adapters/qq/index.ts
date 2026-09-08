@@ -23,7 +23,7 @@ if (!env.QQ_APP_ID || !env.QQ_APP_SECRET)
   throw new Error('QQ_APP_ID or QQ_APP_SECRET is not provided')
 
 const bot = await QQBot.create(env.QQ_APP_ID, env.QQ_APP_SECRET)
-logger.info('bot connected', bot.appId)
+logger.info('bot connected', bot.id)
 
 let emitter: EventEmitter<QQ.DispatchEventMap>
 
