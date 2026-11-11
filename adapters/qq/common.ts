@@ -1123,9 +1123,16 @@ export interface SetMemberMuteState {
   /** 禁言到期时间，RFC3339 格式，最长不超过 30 天 */ mute_expire_at?: string
 }
 
+enum MediaUploadFileType {
+  Image = 1, // 图片(png/jpg)
+  Video = 2, // 视频(mp4)
+  Voice = 3, // 语音(silk)
+  File = 4, // 文件
+}
+
 /** 富媒体上传参数（POST /v2/users/{user_openid}/files、/v2/groups/{group_openid}/files） */
 export interface MediaUpload {
-  /** 1 图片(png/jpg)，2 视频(mp4)，3 语音(silk)，4 文件 */ file_type?: 1 | 2 | 3 | 4
+  file_type?: MediaUploadFileType
   /** 媒体资源 URL，需以 http 开头，分片上传合并时可为空 */ url?: string
   /** true 直接发送消息并占用主动消息频次，false 仅返回 file_info */ srv_send_msg?: boolean
   /** 文件名 */ file_name?: string
