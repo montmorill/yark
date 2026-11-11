@@ -130,7 +130,7 @@ export class QQAdapter extends EventEmitter<Satori.EventMap> implements Partial<
     return {
       id: user.id,
       name: user.username,
-      avatar: `https://q.qlogo.cn/qqapp/${this.bot.id}/${user.id}/640`,
+      avatar: `https://q.qlogo.cn/qqapp/${this.bot.appId}/${user.id}/640`,
       isBot: user.bot,
     }
   }
@@ -146,7 +146,7 @@ export class QQAdapter extends EventEmitter<Satori.EventMap> implements Partial<
     return {
       id: user.id,
       name: user.username,
-      avatar: `https://q.qlogo.cn/qqapp/${this.bot.id}/${user.id}/640`,
+      avatar: `https://q.qlogo.cn/qqapp/${this.bot.appId}/${user.id}/640`,
       isBot: user.bot,
     }
   }
