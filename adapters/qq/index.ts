@@ -35,7 +35,7 @@ if (env.QQ_SERVER_PORT) {
   emitter = server.emitter
 }
 else {
-  const ws = await QQBotWS.create(bot, QQ.Intents.ALL)
+  const ws = await QQBotWS.connect(bot, QQ.Intents.ALL)
   logger.info('websocket connected', ws.sessionId)
   emitter = ws
 }

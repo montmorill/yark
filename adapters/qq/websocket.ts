@@ -43,7 +43,7 @@ export class QQBotWS extends EventEmitter<QQ.DispatchEventMap & {
     })
   }
 
-  static async create(bot: QQBot, intents: QQ.Intents): Promise<QQBotWS> {
+  static async connect(bot: QQBot, intents: QQ.Intents): Promise<QQBotWS> {
     const gateway = await bot.gateway()
     const ws = new QQBotWS(bot, intents, new WebSocket(gateway.url))
     ws.setup(() => ws.send(QQ.OpCode.Identify, {
